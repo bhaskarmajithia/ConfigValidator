@@ -1,0 +1,10 @@
+{
+	"dns:dnsconfig" : {
+		"rdodhcpserver": "1",
+		"dns1": "192.168.57.3",
+		"ipv6rdodhcpserver": "1",
+		"DNSFwdSelection":1,
+		"fieldA": 9,
+        "fieldB": 10
+	}
+}

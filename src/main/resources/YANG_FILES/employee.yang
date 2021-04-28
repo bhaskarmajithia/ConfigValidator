@@ -1,0 +1,25 @@
+module employee {
+
+    yang-version 1.1;
+    namespace "urn:sophos:xg:config:yang:employee";
+    prefix "employee-details";
+
+    revision 2021-04-21 {
+		description "Initial version";
+	}
+    organization "Sophos";
+
+    container details {
+        list employee {
+            leaf name {
+                type string {
+                    length "3";
+                    pattern "[a-z]*";
+                }
+            }
+            leaf org {type string;}
+        }
+    }
+
+}
+

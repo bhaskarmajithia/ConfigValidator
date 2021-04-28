@@ -1,0 +1,46 @@
+module university {
+
+    yang-version 1.1;
+    namespace "urn:sophos:xg:config:yang:university";
+    prefix "student-details";
+
+    revision 2021-04-21 {
+		description "Initial version";
+	}
+
+    organization "Sophos";
+	container studentDetails {
+		leaf student_id{
+			type uint16;
+			mandatory true;
+		}
+		leaf contact_no{
+			type string {
+			    length "10";
+			}
+		}
+		leaf name {
+			type string {
+			    pattern "[A-Za-z]*";
+			}
+		}
+	}
+
+    container teacherDetails {
+		leaf teacher_id{
+			type uint16;
+			mandatory true;
+		}
+		leaf contact_no{
+			type string {
+			    length "10";
+			}
+		}
+		leaf name {
+			type string {
+			    pattern "[A-Za-z]*";
+			}
+		}
+	}
+
+}

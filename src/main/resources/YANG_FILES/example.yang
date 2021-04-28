@@ -1,0 +1,77 @@
+module dns {
+	yang-version 1.1;
+	namespace "urn:sophos:xg:config:yang:interfaces";
+	prefix "dns-config";
+
+	import ietf-inet-types {
+		prefix inet;
+	}
+
+	organization	"Sophos";
+
+	description	"YANG module for DNS configuration";
+
+	revision 2021-03-03 {
+		description "Initial version";
+	}
+
+	container dnsconfig {
+		leaf DNSFwdSelection {
+			type string {
+				length "1";
+				pattern "[a-z]";
+			}
+			default "0";
+		}
+		leaf dns3 {
+			type inet:ipv4-address;
+		}
+
+		leaf rdodhcpserver {
+			type string {
+				length "1";
+				pattern "[0-3]";
+			}
+		}
+		leaf dns2 {
+			type inet:ipv4-address;
+		}
+		leaf ipv6dns1 {
+			type inet:ipv6-address;
+		}
+
+		leaf dns1 {
+			type inet:ipv4-address;
+			mandatory true;
+		}
+
+		leaf ipv6rdodhcpserver {
+			type string {
+				length "1";
+				pattern "[0-1]";
+			}
+		}
+		leaf ipv6dns3 {
+			type inet:ipv6-address;
+		}
+
+		leaf ipv6dns2 {
+			type inet:ipv6-address;
+		}
+
+		leaf fieldA {
+			type uint16;
+		}
+
+		leaf fieldB {
+			when "../fieldA > 0 and ../fieldA <= 10";
+			type uint16 {
+				range "0 .. 10";
+			}
+		}
+		leaf fieldStr{
+		    type string;
+		    mandatory true;
+		}
+	}
+}
